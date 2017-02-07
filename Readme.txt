@@ -1,53 +1,34 @@
-HelloWorld_LOS-RTEMS_LRT
+compiling error msg: 
 
-Supported Platform
-==================
-Myriad2 - This example works on Myriad2: ma2150, ma2450 silicon and
-ma2150, ma2450 simulator
-
-Overview
-==========
-Just starts RTEMS on Leon OS which then starts Leon RT.
-
-Software description
-=======================
-This application uses Leon OS which is running RTEMS to start Leon RT.
-
-Hardware needed
-==================
-Myriad2 -This software should run on MV182 board.
-
-Build
-==================
-Please type "make help" if you want to learn available targets.
-
-!!!Before cross-compiling make sure you do a "make clean"!!!
-
-Myriad2 - To build the project please type:
-     - "make clean"
-     - "make all MV_SOC_REV={Myriad_version}"
-
-Where {Myriad_version} may be ma2150 or ma2450.
-The default Myriad revision in this project is ma2450 so it is not necessary
-to specify the MV_SOC_REV in the terminal.
-
-Setup
-==================
-Myriad2 simulator - To run the application:
-    - open terminal and type "make start_simulator MV_SOC_REV={Myriad_version}"
-    - open another terminal and type "make run MV_SOC_REV={Myriad_version}"
-Myriad2 silicon - To run the application:
-    - open terminal and type "make start_server"
-    - open another terminal and type "make run MV_SOC_REV={Myriad_version}"
-
-Where {Myriad_version} may be ma2150 or ma2450.
-The default Myriad revision in this project is ma2450 so it is not necessary
-to specify the MV_SOC_REV in the terminal.
-
-Expected output
-==================
-The results  consist in printf seen using the debugger:
-UART: LeonOS Started.
-UART: LeonRT Start Addr: 0x701C1000
-UART: LeonRT Started.
-UART: LeonRT Stop.
+Application ELF       : output/005_leonrt_test.elf
+leon_rt/leonRTApp.rtlib: In function `http_get':
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:52: undefined reference to `lrt_socket'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:53: undefined reference to `lrt_server_addr'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:58: undefined reference to `lrt_connect'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:58: undefined reference to `lrt_server_addr'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:59: undefined reference to `lrt_server_addr'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:59: undefined reference to `lrt_inet_ntoa'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:63: undefined reference to `lrt_inet_ntoa'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:63: undefined reference to `lrt_http_request'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:65: undefined reference to `lrt_http_request'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:66: undefined reference to `lrt_http_headers'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:66: undefined reference to `lrt_http_headers'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:68: undefined reference to `lrt_http_request'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:69: undefined reference to `lrt_send'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test/leon_rt/main.c:84: undefined reference to `lrt_recv'
+/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/tools/00.50.79.2/linux64/sparc-myriad-elf-4.8.2/bin/sparc-myriad-elf-ld: link errors found, deleting executable `./output/005_leonrt_test.elf'
+../../../common/generic.mk:99: recipe for target 'output/005_leonrt_test.elf' failed
+make[2]: *** [output/005_leonrt_test.elf] Error 1
+rm leon_rt/leonRTApp.rtlibtemp
+make[2]: Leaving directory '/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test'
+make[2]: Entering directory '/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test'
+Removing ELF file './output/005_leonrt_test.elf'
+exit 1 # take care to fail the overall build as this target is called upon failure
+../../../common/generic.mk:91: recipe for target 'delete_elf' failed
+make[2]: *** [delete_elf] Error 1
+make[2]: Leaving directory '/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test'
+../../../common/generic.mk:74: recipe for target 'all' failed
+make[1]: *** [all] Error 2
+make[1]: Leaving directory '/home/fangli/PHANTOM/phantom_mf/movidius/mdk_release_16.10.9_general_purpose/mdk/examples/HowTo/005_leonrt_test'
+../../../common/generic.mk:30: recipe for target 'all' failed
+make: *** [all] Error 2
